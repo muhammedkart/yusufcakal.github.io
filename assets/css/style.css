@@ -2,30 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 @media (max-width: 480px){
-	header button{
-		display: none;
-	}
-	.social{
-		display: none;
-	}
-	.name{
-		font-size: 25px!important;
-	}
-	.job{
-		margin: 5px!important;
-		font-size: 20px!important;
-	}
-	.sort_bio{
-		text-align: center;
-		margin-top: 0px!important;
-		font-size: 15px!important;
-		line-height: 18px!important;
-		width: 300px!important;
-	}
-	footer{
-		height: 90px!important;
-	}
-	
+	/*Responsive Design*/	
 }
 
 header{
