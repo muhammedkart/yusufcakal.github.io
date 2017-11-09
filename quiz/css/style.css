@@ -1,0 +1,19 @@
+.form-vales input{
+	margin-top: 10px;
+}
+
+label{
+	margin-top: 4px;
+}
+
+.sex{
+	margin-top: 5px;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+.alert-danger{
+	margin-top: 10px;
+}
