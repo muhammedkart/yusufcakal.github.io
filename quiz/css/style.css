@@ -16,4 +16,5 @@ button:hover{
 
 .alert-danger{
 	margin-top: 10px;
+	display: none;
 }
