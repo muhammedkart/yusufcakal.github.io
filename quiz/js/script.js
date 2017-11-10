@@ -28,6 +28,11 @@ $(document).ready(function(){
         }
     });
 
+    $('#myTable').on('click', 'input[type="button"]', function () {
+        $(this).closest('tr').remove();
+    })
+    
+
     save.click(function(){
         
         if(fullname.val() == "" || phone.val() == "" || mail.val() == ""){
@@ -35,22 +40,27 @@ $(document).ready(function(){
         }else if(!validateEmail(mail.val())){
             alertUsing("Mail Adresinizi Kontrol Ediniz.", false);
         }else{
-            $("tbody").
+
+            $("table").
             append("<tr> \
                         <td>" +  fullname.val() + "</td> \
                         <td>" +  phone.val() + "</td> \
                         <td>" +  mail.val() + "</td> \
                         <td>" +  $("input[name=radio]:checked").val() + "</td> \
                         <td> \
-                            <button id='edit' class='btn btn-warning'>Düzenle</button> \
-                            <button id='delete' class='btn btn-danger'>Sil</button> \
+                            <button class='btn btn-warning'>Düzenle</button> \
+                            <button class='btn btn-danger'>Sil</button> \
                         </td> \
                     </tr>");
                    
                     alertUsing("Başarıyla Eklendi.", true);
-
         }
 
+    });
+
+    // Satır Silme
+    $("table").on("click", ".btn-danger", function(){
+        $(this).closest('tr').remove();
     });
 
 });
