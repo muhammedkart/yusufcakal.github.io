@@ -14,7 +14,7 @@ button:hover{
 	cursor: pointer;
 }
 
-.alert-danger{
+.alert{
 	margin-top: 10px;
 	display: none;
 }

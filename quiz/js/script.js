@@ -1,8 +1,6 @@
 $(document).ready(function(){
 
     var save = $("#save");
-    var alert = $(".alert-danger");
-    alert.css("display", "none");
     var fullname = $("#fullname");
     var phone = $("#phone");
     var mail = $("#mail");
@@ -11,9 +9,8 @@ $(document).ready(function(){
         if(key.charCode < 48 || key.charCode > 57){ // Girilen değer harf ise
             return true;
         }else{
-            alertUsing("Sayı Girilemez.");
+            alertUsing("Sayı Girilemez.", false);
             return false; // input'a girilmesine izin verme.
-            
         }
     });
 
@@ -22,11 +19,11 @@ $(document).ready(function(){
             if(phone.val().length < 12){
                 return true;
             }else{
-                alertUsing("11 Haneyi Aştınız.");
+                alertUsing("11 Haneyi Aştınız.", false);
                 return false;
             }
         }else{
-            alertUsing("Sayı Giriniz.");
+            alertUsing("Sayı Giriniz.", false);
             return false; // input'a girilmesine izin verme.
         }
     });
@@ -34,9 +31,9 @@ $(document).ready(function(){
     save.click(function(){
         
         if(fullname.val() == "" || phone.val() == "" || mail.val() == ""){
-            alertUsing("Boş Alan Olamaz.");
+            alertUsing("Boş Alan Olamaz.", false);
         }else if(!validateEmail(mail.val())){
-            alertUsing("Mail Adresinizi Kontrol Ediniz.");
+            alertUsing("Mail Adresinizi Kontrol Ediniz.", false);
         }else{
             $("tbody").
             append("<tr> \
@@ -49,20 +46,33 @@ $(document).ready(function(){
                             <button id='delete' class='btn btn-danger'>Sil</button> \
                         </td> \
                     </tr>");
+                   
+                    alertUsing("Başarıyla Eklendi.", true);
+
         }
 
     });
 
 });
 
-function alertUsing(text) {
-    var alert = $(".alert-danger");
+function alertUsing(text, flag) {
+
+    var alert = $(".alert");
+
+    if(flag){
+        alert.removeClass("alert-danger").addClass("alert-success");
+    }else{
+        alert.removeClass("alert-success").addClass("alert-danger");
+        
+    }
+    
     alert.fadeIn(400);
     alert.css("display", "block");
     alert.text(text);
     setTimeout(function() {
         alert.fadeOut();
     }, 2000);
+
   }
 
 function validateEmail(mail) {
